@@ -19,7 +19,7 @@ func main() {
 	for _, iface := range interfaces {
 		if strings.Contains(iface.Name, "wlan") || strings.Contains(iface.Name, "ap") {
 			// 获取该接口的所有地址
-			addrs, err := iface.Addrs()
+			addrs, err := anet.InterfaceAddrsByInterface(&iface)
 
 			if err != nil {
 				fmt.Printf("Error getting addresses for interface %s: %v\n", iface.Name, err)
